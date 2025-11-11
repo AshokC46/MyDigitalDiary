@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Grid, Typography, CardMedia, CardContent, Card } from "@mui/material";
+import { Grid, Typography, CardMedia, CardContent, Card, Container } from "@mui/material";
 
 function Main() {
   const cardData = [
@@ -74,22 +74,23 @@ function Main() {
 
   return (
     <Grid container spacing={3} justifyContent="center" alignItems="stretch">
-      {cardData.map((item, index) => (
-        <Grid item xs={12} sm={6} md={4} key={index} lg={4} xl={4}>
-          <Card sx={{ width: "100%" }}>
-            <CardMedia
-              component="img"
-              height="180"
-              image={item.image}
-              alt={item.title}
-            />
-            <CardContent>
-              <Typography variant="h6">{item.title}</Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-      ))}
+  {cardData.map((item, index) => (
+    <Grid item xs={12} sm={6} md={4} lg={4} xl={4} key={index}>
+      <Card sx={{ width: "100%" }}>
+        <CardMedia
+          component="img"
+          height="180"
+          image={item.image}
+          alt={item.title}
+        />
+        <CardContent>
+          <Typography variant="h6">{item.title}</Typography>
+        </CardContent>
+      </Card>
     </Grid>
+  ))}
+</Grid>
+
   );
 }
 
