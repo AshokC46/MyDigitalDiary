@@ -1,13 +1,6 @@
 import React from "react";
-// 🚨 Import Container component
-import {
-  Grid,
-  Typography,
-  CardMedia,
-  CardContent,
-  Card,
-  Container, // <--- Add this
-} from "@mui/material";
+
+import { Grid, Typography, CardMedia, CardContent, Card } from "@mui/material";
 
 function Main() {
   const cardData = [
@@ -80,27 +73,23 @@ function Main() {
   ];
 
   return (
-    // 💡 Use Container as the outermost wrapper
-    <Container maxWidth="xl" sx={{ py: 4 }}>
-      <Grid container spacing={3} justifyContent="center" alignItems="stretch">
-        {cardData.map((item, index) => (
-          // This line is now CORRECT: 3 cards per row (12/4=3) from medium screens up
-          <Grid item xs={12} sm={6} md={4} lg={4} xl={4} key={index}>
-            <Card > {/* Added height: "100%" for consistent card height */}
-              <CardMedia
-                component="img"
-                height="180"
-                image={item.image}
-                alt={item.title}
-              />
-              <CardContent>
-                <Typography variant="h6">{item.title}</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    <Grid container spacing={3} justifyContent="center" alignItems="stretch">
+      {cardData.map((item, index) => (
+        <Grid item xs={12} sm={6} md={4} key={index} lg={4} xl={4}>
+          <Card sx={{ width: "100%" }}>
+            <CardMedia
+              component="img"
+              height="180"
+              image={item.image}
+              alt={item.title}
+            />
+            <CardContent>
+              <Typography variant="h6">{item.title}</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
   );
 }
 
